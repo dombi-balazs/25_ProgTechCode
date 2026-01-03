@@ -1,0 +1,27 @@
+@model JarmuMvcApp.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Törlés";
+}
+<body>
+<h1>Jármű törlése</h1>
+
+<h3>Biztosan törlöd ezt a járművet?</h3>
+<div>
+    <h4>@Model.LicensePlate - @Model.Name</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Tulaj</dt>
+        <dd class="col-sm-10">@Model.Owner</dd>
+        <dt class="col-sm-2">Típus</dt>
+        <dd class="col-sm-10">@Model.Type</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Törlés</button>
+        <button type="button" onclick="window.location.href='/Vehicles'">
+            Vissza a listához
+        </button>
+    </form>
+</div>
+</body>

@@ -1,0 +1,30 @@
+@model JarmuMvcApp.Models.Vehicle
+
+<h1>Új jármű felvétele</h1>
+
+<form method="post" action="/Vehicles/Create">
+
+
+    <div style="margin-bottom:10px;">
+        <label for="LicensePlate">Rendszám</label><br />
+        <input type="text" id="LicensePlate" name="LicensePlate" required style="width:300px;" />
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <label for="Owner">Tulaj</label><br />
+        <input type="text" id="Owner" name="Owner" style="width:300px;" />
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <label for="Name">Márka</label><br />
+        <input type="text" id="Name" name="Name" style="width:300px;" />
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <label for="Type">Típus</label><br />
+        <input type="text" id="Type" name="Type" style="width:300px;" />
+    </div>
+
+    <button type="submit" style="padding:8px 14px; margin-right:10px;">Mentés</button>
+    <button type="button" onclick="window.location.href='/Vehicles'" style="padding:8px 14px;">Mégse</button>
+</form>

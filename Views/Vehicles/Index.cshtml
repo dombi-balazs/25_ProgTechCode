@@ -1,0 +1,48 @@
+@model IEnumerable<JarmuMvcApp.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Járművek";
+}
+<body>
+<h1>Járművek</h1>
+
+<button onclick="window.location.href='/Vehicles/Create'" style="padding:8px 14px; font-size:16px;">
+    Új jármű felvétele
+</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Rendszám</th>
+            <th>Tulaj</th>
+            <th>Név</th>
+            <th>Típus</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.LicensePlate</td>
+            <td>@item.Owner</td>
+            <td>@item.Name</td>
+            <td>@item.Type</td>
+            <td>
+                    <button onclick="window.location.href='/Vehicles/Details/@item.Id'">
+                        Részletek
+                    </button> |
+                    <button onclick="window.location.href='/Vehicles/Edit/@item.Id'">
+                        Szerkeszt
+                    </button> |
+                    <button onclick="window.location.href='/Vehicles/Delete/@item.Id'">
+                        Törlés
+                    </button>
+            </td>
+        </tr>
+    }
+    </tbody>
+   
+</table>
+
+</body>

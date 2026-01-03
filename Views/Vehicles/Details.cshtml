@@ -1,0 +1,31 @@
+@model JarmuMvcApp.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Részletek";
+}
+<body>
+<h1>Jármű részletek</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">Rendszám</dt>
+    <dd class="col-sm-10">@Model.LicensePlate</dd>
+
+    <dt class="col-sm-2">Tulaj</dt>
+    <dd class="col-sm-10">@Model.Owner</dd>
+
+    <dt class="col-sm-2">Név</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+
+    <dt class="col-sm-2">Típus</dt>
+    <dd class="col-sm-10">@Model.Type</dd>
+</dl>
+
+<p>
+    <button onclick="window.location.href='/Vehicles/Edit/@Model.Id'">
+        Szerkeszt
+    </button>
+    <button onclick="window.location.href='/Vehicles'">
+        Vissza a listához
+    </button>
+</p>
+</body>
