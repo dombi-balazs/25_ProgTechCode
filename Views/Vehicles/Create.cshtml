@@ -1,30 +1,46 @@
 @model JarmuMvcApp.Models.Vehicle
 
-<h1>Új jármű felvétele</h1>
+@{
+    ViewData["Title"] = "Új jármű";
+}
 
-<form method="post" action="/Vehicles/Create">
+<div style="display: flex; justify-content: center;">
+    <fluent-card style="width: 100%; max-width: 500px; margin-top: 20px;">
+        
+        <h2 style="margin-bottom: 20px;">Új jármű felvétele</h2>
 
+        <form method="post" action="/Vehicles/Create">
 
-    <div style="margin-bottom:10px;">
-        <label for="LicensePlate">Rendszám</label><br />
-        <input type="text" id="LicensePlate" name="LicensePlate" required style="width:300px;" />
-    </div>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                
+                <fluent-text-field name="LicensePlate" required style="width: 100%;">
+                    Rendszám
+                </fluent-text-field>
 
-    <div style="margin-bottom:10px;">
-        <label for="Owner">Tulaj</label><br />
-        <input type="text" id="Owner" name="Owner" style="width:300px;" />
-    </div>
+                <fluent-text-field name="Owner" style="width: 100%;">
+                    Tulajdonos
+                </fluent-text-field>
 
-    <div style="margin-bottom:10px;">
-        <label for="Name">Márka</label><br />
-        <input type="text" id="Name" name="Name" style="width:300px;" />
-    </div>
+                <fluent-text-field name="Name" style="width: 100%;">
+                    Márka / Név
+                </fluent-text-field>
 
-    <div style="margin-bottom:10px;">
-        <label for="Type">Típus</label><br />
-        <input type="text" id="Type" name="Type" style="width:300px;" />
-    </div>
+                <fluent-text-field name="Type" style="width: 100%;">
+                    Típus
+                </fluent-text-field>
 
-    <button type="submit" style="padding:8px 14px; margin-right:10px;">Mentés</button>
-    <button type="button" onclick="window.location.href='/Vehicles'" style="padding:8px 14px;">Mégse</button>
-</form>
+            </div>
+
+            <div style="margin-top: 25px; display: flex; justify-content: flex-end; gap: 10px;">
+                <fluent-button appearance="neutral" onclick="window.location.href='/Vehicles'">
+                    Mégse
+                </fluent-button>
+                
+                <fluent-button appearance="accent" type="submit">
+                    Létrehozás
+                </fluent-button>
+            </div>
+
+        </form>
+    </fluent-card>
+</div>

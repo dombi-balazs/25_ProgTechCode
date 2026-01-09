@@ -3,25 +3,32 @@
 @{
     ViewData["Title"] = "Törlés";
 }
-<body>
-<h1>Jármű törlése</h1>
 
-<h3>Biztosan törlöd ezt a járművet?</h3>
-<div>
-    <h4>@Model.LicensePlate - @Model.Name</h4>
-    <dl class="row">
-        <dt class="col-sm-2">Tulaj</dt>
-        <dd class="col-sm-10">@Model.Owner</dd>
-        <dt class="col-sm-2">Típus</dt>
-        <dd class="col-sm-10">@Model.Type</dd>
-    </dl>
+<div style="display: flex; justify-content: center;">
+    <fluent-card style="width: 100%; max-width: 500px; margin-top: 20px; border-color: #d13438;">
+        
+        <h2 style="color: #ff6b6b; margin-bottom: 10px;">Jármű törlése</h2>
+        <p>Biztosan törölni szeretnéd az alábbi járművet?</p>
+        
+        <div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+            <h3 style="margin-top: 0;">@Model.LicensePlate</h3>
+            <p style="margin: 0; color: #aaa;">@Model.Name - @Model.Owner</p>
+        </div>
 
-    <form asp-action="Delete" method="post">
-        <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-danger">Törlés</button>
-        <button type="button" onclick="window.location.href='/Vehicles'">
-            Vissza a listához
-        </button>
-    </form>
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <fluent-button appearance="neutral" type="button" onclick="window.location.href='/Vehicles'">
+                    Mégse
+                </fluent-button>
+
+                <fluent-button appearance="accent" type="submit" 
+                    style="--accent-fill-rest: #d13438; --accent-fill-hover: #a80000; --accent-fill-active: #750000;">
+                    Végleges törlés
+                </fluent-button>
+            </div>
+        </form>
+        
+    </fluent-card>
 </div>
-</body>

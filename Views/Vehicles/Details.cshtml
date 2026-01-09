@@ -3,29 +3,41 @@
 @{
     ViewData["Title"] = "Részletek";
 }
-<body>
-<h1>Jármű részletek</h1>
 
-<dl class="row">
-    <dt class="col-sm-2">Rendszám</dt>
-    <dd class="col-sm-10">@Model.LicensePlate</dd>
+<div style="display: flex; justify-content: center;">
+    <fluent-card style="width: 100%; max-width: 500px; margin-top: 20px;">
+        
+        <h2 style="margin-bottom: 20px;">Jármű adatai</h2>
 
-    <dt class="col-sm-2">Tulaj</dt>
-    <dd class="col-sm-10">@Model.Owner</dd>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            
+            <fluent-text-field value="@Model.LicensePlate" readonly style="width: 100%;">
+                Rendszám
+            </fluent-text-field>
 
-    <dt class="col-sm-2">Név</dt>
-    <dd class="col-sm-10">@Model.Name</dd>
+            <fluent-text-field value="@Model.Owner" readonly style="width: 100%;">
+                Tulajdonos
+            </fluent-text-field>
 
-    <dt class="col-sm-2">Típus</dt>
-    <dd class="col-sm-10">@Model.Type</dd>
-</dl>
+            <fluent-text-field value="@Model.Name" readonly style="width: 100%;">
+                Márka / Név
+            </fluent-text-field>
 
-<p>
-    <button onclick="window.location.href='/Vehicles/Edit/@Model.Id'">
-        Szerkeszt
-    </button>
-    <button onclick="window.location.href='/Vehicles'">
-        Vissza a listához
-    </button>
-</p>
-</body>
+            <fluent-text-field value="@Model.Type" readonly style="width: 100%;">
+                Típus
+            </fluent-text-field>
+
+        </div>
+
+        <div style="margin-top: 25px; display: flex; justify-content: flex-end; gap: 10px;">
+            <fluent-button appearance="neutral" onclick="window.location.href='/Vehicles'">
+                Vissza a listához
+            </fluent-button>
+
+            <fluent-button appearance="accent" onclick="window.location.href='/Vehicles/Edit/@Model.Id'">
+                Szerkesztés
+            </fluent-button>
+        </div>
+
+    </fluent-card>
+</div>

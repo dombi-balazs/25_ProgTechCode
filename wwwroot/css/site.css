@@ -1,0 +1,54 @@
+:root {
+    --bg-color: #202020;
+    --card-color: #2d2d2d;
+    --text-color: #ffffff;
+    --border-color: #3e3e3e;
+    --table-header-bg: #2d2d2d;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--text-color);
+    margin: 0;
+}
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-color);
+    color: var(--text-color) !important;
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: var(--table-header-bg) !important;
+    color: #cccccc;
+    border-bottom: 2px solid var(--border-color);
+    border-top: none;
+    padding: 12px;
+}
+
+.table td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px;
+    color: var(--text-color);
+}
+
+.table-hover tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+fluent-card {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: block;
+}
